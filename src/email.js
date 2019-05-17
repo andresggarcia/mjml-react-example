@@ -9,11 +9,12 @@ import {
   MjmlBody,
   MjmlSection,
   MjmlColumn,
-  MjmlButton,
+  MjmlGroup,
   MjmlImage,
   MjmlStyle,
   MjmlText
 } from 'mjml-react';
+import Title from './components/Title'
 
 const css = readFileSync('./assets/styles.css').toString();
 
@@ -23,13 +24,10 @@ export const generate = () => {
       <MjmlHead>
         <MjmlTitle>Last Minute Offer</MjmlTitle>
         <MjmlPreview>Last Minute Offer...</MjmlPreview>
-        <MjmlStyle>{css}</MjmlStyle>
         <MjmlStyle>{`
           .blue-column {
             background-color: blue;
           }
-        `}</MjmlStyle>
-        <MjmlStyle inline>{`
           .red-column {
             background-color: red;
           }
@@ -41,25 +39,46 @@ export const generate = () => {
             <MjmlImage src="https://static.wixstatic.com/media/5cb24728abef45dabebe7edc1d97ddd2.jpg" />
           </MjmlColumn>
         </MjmlSection>
+
         <MjmlSection>
-          <MjmlColumn>
-            <MjmlButton padding="20px" backgroundColor="#346DB7" href="https://www.wix.com/">
-              I like it!
-            </MjmlButton>
-          </MjmlColumn>
+          <MjmlGroup>
+            <MjmlColumn>
+              <MjmlImage width="137px" height="185px" src="https://mjml.io/assets/img/easy-and-quick.png" />
+              <MjmlText align="center">Item 1</MjmlText>
+              <MjmlText align="center">Write less code, save time and code more efficiently with MJML’s semantic syntax.</MjmlText>
+            </MjmlColumn>
+            <MjmlColumn>
+              <MjmlImage width="137px" height="185px" src="https://mjml.io/assets/img/responsive.png" />
+              <MjmlText align="center">Item 2</MjmlText>
+              <MjmlText align="center">Write less code, save time and code more efficiently with MJML’s semantic syntax.</MjmlText>
+            </MjmlColumn>
+          </MjmlGroup>
         </MjmlSection>
+
         <MjmlSection>
-          <MjmlColumn cssClass="blue-column">
-            <MjmlText>I am blue</MjmlText>
-          </MjmlColumn>
-          <MjmlColumn cssClass="red-column">
-            <MjmlText>I am red</MjmlText>
-          </MjmlColumn>
+          <MjmlGroup>
+            <MjmlColumn>
+              <MjmlText align="center" >
+                <Title text="CustomComponent" />
+              </MjmlText>
+            </MjmlColumn>
+            <MjmlColumn>
+              <MjmlText align="center">
+                <Title text="CustomComponent" />
+              </MjmlText>
+            </MjmlColumn>
+          </MjmlGroup>
         </MjmlSection>
+
         <MjmlSection>
-          <MjmlColumn>
-            <MjmlText><a href="/2">Open Second Template</a></MjmlText>
-          </MjmlColumn>
+          <MjmlGroup>
+            <MjmlColumn cssClass="blue-column">
+              <MjmlText>I am blue</MjmlText>
+            </MjmlColumn>
+            <MjmlColumn cssClass="red-column">
+              <MjmlText>I am red</MjmlText>
+            </MjmlColumn>
+          </MjmlGroup>
         </MjmlSection>
       </MjmlBody>
     </Mjml>

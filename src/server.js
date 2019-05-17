@@ -12,8 +12,12 @@ app.get('/2', (req, res) => {
   res.send(html);
 });
 
-app.get('*', (req, res) => {
+app.use('*', (req, res) => {
   const {html}  = render(email1.generate(), {validationLevel: 'soft'});
+  console.log('\n', '===============================================', '\n');
+  console.log('html');
+  console.log(html);
+  console.log('\n', '===============================================', '\n');
   res.send(html);
 });
 
